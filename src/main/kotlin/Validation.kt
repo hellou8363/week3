@@ -18,7 +18,7 @@ class Validation { // 유효값 검증을 위한 클래스
             }
 
             if (value.length < 3 || value.length > 3) {
-                throw Exception("세 자리 숫자를 입력해주세요.")
+                throw Exception("세 자리 숫자를 입력해야 합니다.")
             }
 
             val numberSet = number.toString().toSet()
