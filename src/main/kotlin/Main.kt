@@ -20,7 +20,7 @@ fun main() {
                 println("< 게임을 시작합니다. >")
                 println("숫자를 입력하세요.")
 
-                val correctAnswer = RandomNumber().generateThreeRandomNumbers() // 랜덤한 3개의 숫자
+                val correctAnswer = generateThreeRandomNumbers() // 랜덤한 3개의 숫자
 
                 while (true) {
                     try {
