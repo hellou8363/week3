@@ -1,7 +1,6 @@
 package org.example
 
 fun main() {
-    val game = Game()
     val storage = Storage()
     val validation = Validation()
     var count = 0 // 진행되는 게임이 시도 횟수
@@ -32,7 +31,7 @@ fun main() {
                         val userAnswer = validation.validateInputValue(input).map { Character.getNumericValue(it) }
 
                         // 4. 정답과 유저의 입력값을 비교하여 스트라이크/볼을 출력하기
-                        val playResult = game.play(userAnswer, correctAnswer)
+                        val playResult = validation.checkAnswer(userAnswer, correctAnswer)
                         count++
 
                         println(playResult)
