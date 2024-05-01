@@ -1,6 +1,6 @@
 package org.example
 
-class Validation { // 유효값 검증을 위한 클래스
+class Validation {
 
     fun validateInputValue(value: String): String {
         val number: Short
