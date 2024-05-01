@@ -3,6 +3,7 @@ package org.example
 fun main() {
     val game = Game()
     val storage = Storage()
+    val validation = Validation()
     var count = 0 // 진행되는 게임이 시도 횟수
 
     println("[          숫자 야구 게임          ]")
@@ -28,7 +29,7 @@ fun main() {
 
                         // 2. 정수로 변환되지 않는 경우 반복문 처음으로 돌아가기
                         // 3. 세자리가 아니거나, 0을 가지거나 특정 숫자가 두 번 사용된 경우 반복문 처음으로 돌아가기
-                        val userAnswer = Validation.validateInputValue(input).map { Character.getNumericValue(it) }
+                        val userAnswer = validation.validateInputValue(input).map { Character.getNumericValue(it) }
 
                         // 4. 정답과 유저의 입력값을 비교하여 스트라이크/볼을 출력하기
                         val playResult = game.play(userAnswer, correctAnswer)
