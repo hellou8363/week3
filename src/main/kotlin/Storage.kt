@@ -1,13 +1,13 @@
 package org.example
 
 class Storage {
-    private val gameScore = mutableListOf<Int>()
+    private val gameScoreList = mutableListOf<Int>()
 
     fun save(score: Int) {
-        gameScore.add(score)
+        gameScoreList.add(score)
     }
 
     fun getGameScore(): MutableList<Int> {
-        return gameScore
+        return gameScoreList
     }
 }
