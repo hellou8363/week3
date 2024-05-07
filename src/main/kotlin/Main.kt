@@ -69,7 +69,7 @@ fun main() {
             }
 
             else -> {
-                println("잘못된 입력 입니다.")
+                println("올바른 숫자를 입력해주세요!")
             }
         }
     }
