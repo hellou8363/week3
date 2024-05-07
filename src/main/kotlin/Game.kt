@@ -1,6 +1,6 @@
 package org.example
 
-class Game {
+class Game { // 정답을 체크하는 함수도 Game 클래스에 있어야 하는 이유를 잘 모르겠음
     private val storage by lazy { Storage() }
     private val validation by lazy { Validation() }
     private var count = 0
@@ -15,7 +15,7 @@ class Game {
             try {
                 val input = readln()
                 val userAnswer = validation.validateInputValue(input).map { Character.getNumericValue(it) }
-                val playResult = validation.checkAnswer(userAnswer, correctAnswer)
+                val playResult = checkAnswer(userAnswer, correctAnswer)
 
                 count++
 
@@ -36,6 +36,30 @@ class Game {
                 continue
             }
         }
+    }
+
+    fun checkAnswer(value: List<Int>, userAnswer: List<Int>): String { // 유저가 입력한 숫자와 정답의 일치하는지 검증
+        val strike = value.filterIndexed { index, c -> c == userAnswer[index] }.size
+        val ball = value.filter { userAnswer.contains(it) }.size - strike
+        var result = ""
+
+        if (strike > 0) {
+            result += "${strike}스트라이크 "
+
+            if (strike == 3) {
+                return "정답입니다!"
+            }
+        }
+
+        if (ball > 0) {
+            result += "${ball}볼 "
+        }
+
+        if (strike == 0 && ball == 0) {
+            result = "Nothing"
+        }
+
+        return result
     }
 
     fun viewRecords() {
