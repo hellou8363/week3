@@ -1,6 +1,6 @@
 package org.example
 
-class Game { // 정답을 체크하는 함수도 Game 클래스에 있어야 하는 이유를 잘 모르겠음
+class Game {
     private val storage by lazy { Storage() }
     private val validation by lazy { Validation() }
     private var count = 0
@@ -11,6 +11,11 @@ class Game { // 정답을 체크하는 함수도 Game 클래스에 있어야 하
 
         val correctAnswer = generateThreeRandomNumbers()
 
+        gameLoop(correctAnswer)
+
+    }
+
+    fun gameLoop(correctAnswer: List<Int>) {
         while (true) {
             try {
                 val input = readln()
@@ -36,6 +41,7 @@ class Game { // 정답을 체크하는 함수도 Game 클래스에 있어야 하
                 continue
             }
         }
+
     }
 
     fun checkAnswer(value: List<Int>, userAnswer: List<Int>): String { // 유저가 입력한 숫자와 정답의 일치하는지 검증
